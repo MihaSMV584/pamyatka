@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Антикризисная памятка: как не терять деньги на инфляции</title>
+<meta name="description" content="Пять вопросов банку и калькулятор реального дохода: сколько на самом деле зарабатывают ваши деньги с учётом инфляции.">
+<meta name="theme-color" content="#f1f3ec">
+<style>
+:root{--bg:#f1f3ec;--card:#fff;--ink:#16201a;--mute:#55605a;--acc:#1d6b4f;--accink:#fff;--loss:#b3361f;--line:#d3d9cf;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101512;--card:#171d19;--ink:#e9eee8;--mute:#9aa59e;--acc:#5cc79b;--accink:#0b1410;--loss:#ff7b61;--line:#27302a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101512;--card:#171d19;--ink:#e9eee8;--mute:#9aa59e;--acc:#5cc79b;--accink:#0b1410;--loss:#ff7b61;--line:#27302a;color-scheme:dark}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:560px;margin:0 auto;padding:24px 18px 56px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px}
+.brand{font-weight:700;font-size:15px;color:var(--mute)}
+.pill{font-size:14px;font-weight:700;text-decoration:none;color:var(--acc);border:1.5px solid var(--acc);border-radius:99px;padding:6px 14px}
+h1{font:700 clamp(36px,10.5vw,50px)/1.04 Georgia,"Times New Roman",serif;letter-spacing:-.02em;margin:0 0 14px}
+.lead{color:var(--mute);margin:0 0 28px;font-size:18px;max-width:34em}
+.intro{font:italic 400 21px/1.45 Georgia,"Times New Roman",serif;margin:0 0 36px;padding-left:16px;border-left:3px solid var(--acc)}
+h2.sec{font:700 24px/1.2 Georgia,serif;margin:0 0 6px}
+.hint{color:var(--mute);font-size:15px;margin:0 0 14px}
+.list{border-top:1px solid var(--line);margin-bottom:12px}
+.item{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.item input{appearance:none;-webkit-appearance:none;flex:none;width:26px;height:26px;margin:2px 0 0;border:2px solid var(--mute);border-radius:8px;background:var(--card);display:grid;place-content:center;cursor:pointer;transition:background .15s,border-color .15s}
+.item input::after{content:"";width:12px;height:7px;border-left:3px solid var(--accink);border-bottom:3px solid var(--accink);transform:rotate(-45deg) translate(1px,-1px) scale(0);transition:transform .15s}
+.item input:checked{background:var(--acc);border-color:var(--acc)}
+.item input:checked::after{transform:rotate(-45deg) translate(1px,-1px) scale(1)}
+.item input:focus-visible,.pill:focus-visible,.cta:focus-visible,.calc input:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.item h3{font-size:19px;line-height:1.3;margin:0 0 4px}
+.item p{margin:0;color:var(--mute)}
+.item input:checked + div h3{color:var(--mute);text-decoration:line-through;text-decoration-thickness:1px}
+.prog{font-size:14px;color:var(--mute);margin:0 0 36px}
+.calc{background:var(--card);border:1.5px solid var(--ink);border-radius:18px;padding:20px;margin:0 0 20px}
+.calc h2{font:700 22px/1.2 Georgia,serif;margin:0 0 4px}
+.calc .hint{margin-bottom:16px}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f .wide{grid-column:1/-1}
+.f label{font-size:14px;color:var(--mute)}
+.f input{display:block;width:100%;margin-top:4px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:10px 12px;font:inherit;font-size:21px;font-weight:700}
+.res{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.big{font:700 40px/1.05 Georgia,serif;font-variant-numeric:tabular-nums;color:var(--acc)}
+.big.neg{color:var(--loss)}
+.note{color:var(--mute);font-size:15px;margin:6px 0 0}
+.bars{margin-top:18px;display:grid;gap:12px}
+.bar{font-size:14px;color:var(--mute)}
+.bar b{display:flex;justify-content:space-between;color:var(--ink);font-size:15px;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.track{height:12px;background:var(--bg);border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.fill{height:100%;background:var(--mute);border-radius:6px;transition:width .35s ease}
+.fill.real{background:var(--acc)}
+.fill.real.neg{background:var(--loss)}
+.warn{font-size:14px;color:var(--mute);margin:0 0 28px}
+.cta{display:block;text-align:center;text-decoration:none;background:var(--acc);color:var(--accink);border-radius:16px;padding:18px 16px;font-weight:800;font-size:18px}
+.cta small{display:block;font-weight:500;font-size:14px;opacity:.85;margin-top:2px}
+.cta:active{transform:scale(.99)}
+footer{text-align:center;color:var(--mute);font-size:13px;margin-top:22px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <span class="brand">Рубль на связи</span>
+    <a class="pill tg" href="https://t.me/+Kt1jC_VLJgw5NzFi" target="_blank" rel="noopener">Канал в Telegram</a>
+  </div>
+
+  <h1>Антикризисная памятка</h1>
+  <p class="lead">Как не терять деньги на инфляции: пять вопросов, которые стоит задать банку</p>
+  <p class="intro">Деньги, которые лежат без дела, дешевеют. Если цены растут на 10% в год, за год покупательная способность падает примерно на десятую часть.</p>
+
+  <h2 class="sec">Спроси у банка</h2>
+  <p class="hint">Отмечай вопросы, на которые уже получил ответ. Отметки сохранятся на этом устройстве.</p>
+  <div class="list" id="list">
+    <label class="item"><input type="checkbox" data-k="1"><div><h3>Ставка — это не доход</h3><p>Смотри на ставку минус инфляция. Дают 15%, а цены растут на 10%: реальный плюс около 5%.</p></div></label>
+    <label class="item"><input type="checkbox" data-k="2"><div><h3>Акционная ставка не навсегда</h3><p>Часто высокий процент действует только первые месяцы. Читай, что будет потом.</p></div></label>
+    <label class="item"><input type="checkbox" data-k="3"><div><h3>Счёт и вклад — это разное</h3><p>Со счёта снимаешь когда хочешь, но ставка может меняться. Во вкладе ставка фиксируется, но снимать раньше срока невыгодно.</p></div></label>
+    <label class="item"><input type="checkbox" data-k="4"><div><h3>Проверь страхование</h3><p>Банк должен входить в систему страхования вкладов. Лимит смотри на сайте АСВ.</p></div></label>
+    <label class="item"><input type="checkbox" data-k="5"><div><h3>Не забудь про налог</h3><p>Проценты по вкладам могут облагаться налогом. Актуальные правила смотри на сайте ФНС.</p></div></label>
+  </div>
+  <p class="prog" id="prog"></p>
+
+  <section class="calc" aria-live="polite">
+    <h2>Посчитай свой реальный плюс</h2>
+    <p class="hint">Ставку возьми из условий банка, инфляцию — у Росстата или ЦБ. Цифры за тебя я не подставляю.</p>
+    <div class="f">
+      <label>Ставка, % годовых<input id="r" type="number" inputmode="decimal" value="15" step="0.5"></label>
+      <label>Инфляция, % в год<input id="i" type="number" inputmode="decimal" value="10" step="0.5"></label>
+      <label class="wide">Сумма, ₽<input id="s" type="number" inputmode="numeric" value="100000" step="1000" min="0"></label>
+    </div>
+    <div class="res">
+      <div class="big" id="big"></div>
+      <p class="note" id="note"></p>
+      <div class="bars" id="bars"></div>
+    </div>
+  </section>
+
+  <p class="warn">Это не рекомендация, куда вкладывать. Я не финансовый консультант, это вопросы, которые стоит задать банку. Расчёт упрощён: налог и капитализация процентов не учтены. Про налоги и страхование проверяй актуальные правила на сайтах ФНС и АСВ.</p>
+
+  <a class="cta tg" href="https://t.me/+Kt1jC_VLJgw5NzFi" target="_blank" rel="noopener">Читать новости про рубль, цены и ставку<small>Канал «Рубль на связи» в Telegram</small></a>
+  <footer>Рубль на связи</footer>
+</main>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id)};
+var num=function(el){return parseFloat(String(el.value).replace(",","."))};
+var fmt=function(n){return Math.round(n).toLocaleString("ru-RU")+" ₽"};
+
+/* Чек-лист с запоминанием */
+var boxes=[].slice.call(document.querySelectorAll("#list input")),KEY="memo-checks";
+var saved={};
+try{saved=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){}
+function prog(){
+  var n=boxes.filter(function(b){return b.checked}).length;
+  $("prog").textContent=n===boxes.length?"Все пять вопросов закрыты. Можно выбирать условия.":"Закрыто вопросов: "+n+" из "+boxes.length;
+}
+boxes.forEach(function(b){
+  b.checked=!!saved[b.dataset.k];
+  b.addEventListener("change",function(){
+    saved[b.dataset.k]=b.checked;
+    try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}
+    prog();
+  });
+});
+prog();
+
+/* Калькулятор */
+var r=$("r"),i=$("i"),s=$("s");
+function calc(){
+  var a=num(r),b=num(i),sum=num(s);
+  if(isNaN(a)||isNaN(b)||isNaN(sum)||sum<0){
+    $("big").className="big";$("big").textContent="Впиши все цифры";$("note").textContent="";$("bars").innerHTML="";return;
+  }
+  var real=((1+a/100)/(1+b/100)-1)*100;
+  var d=Math.round(real*10)/10;
+  var after=sum*(1+a/100);
+  var inToday=sum*(1+a/100)/(1+b/100);
+  var neg=d<0;
+  $("big").className="big"+(neg?" neg":"");
+  $("big").textContent=(d>0?"+":"")+d.toLocaleString("ru-RU")+"%";
+  $("note").textContent=d>0?"Реальный доход за год: деньги растут быстрее цен.":d===0?"Деньги растут вровень с ценами: ни плюса, ни минуса.":"Деньги растут медленнее цен, поэтому они дешевеют.";
+  var max=Math.max(sum,after,inToday)||1;
+  function bar(label,val,cls){
+    return '<div class="bar"><b><span>'+label+'</span><span>'+fmt(val)+'</span></b><div class="track"><div class="fill '+cls+'" style="width:'+Math.max(2,val/max*100)+'%"></div></div></div>';
+  }
+  $("bars").innerHTML=
+    bar("Сейчас",sum,"")+
+    bar("Через год на счёте",after,"")+
+    bar("Через год в ценах сегодняшнего дня",inToday,"real"+(neg?" neg":""));
+}
+[r,i,s].forEach(function(el){el.addEventListener("input",calc)});
+calc();
+})();
+</script>
+</body>
+</html>
